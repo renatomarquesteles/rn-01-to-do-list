@@ -26,7 +26,6 @@ export const styles = StyleSheet.create({
     borderRadius: 6,
     marginRight: 4,
     borderWidth: 1,
-    borderColor: '#0d0d0d'
   },
   button: {
     height: 52,
@@ -42,8 +41,6 @@ export const styles = StyleSheet.create({
     paddingVertical: 20,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    borderBottomWidth: 1,
-    borderColor: '#333333'
   },
   tagWrapper: {
     flexDirection: 'row',
@@ -73,6 +70,8 @@ export const styles = StyleSheet.create({
     paddingVertical: 48,
     alignItems: 'center',
     justifyContent: 'center',
+    borderTopWidth: 1,
+    borderColor: '#333333'
   },
   emptyListTitle: {
     marginTop: 16,
@@ -83,5 +82,8 @@ export const styles = StyleSheet.create({
   emptyListText: {
     fontSize: 14,
     color: '#808080'
+  },
+  tasks: {
+    paddingHorizontal: 24,
   }
 });
