@@ -16,6 +16,7 @@ import { Task } from '../../components/Task';
 import { styles } from './styles';
 
 export function Home() {
+  const [inputText, setInputText] = useState('');
   const [isInputFocused, setIsInputFocused] = useState(false);
   const [tasks, setTasks] = useState([
     { id: uuidv4(), text: 'School', isDone: false },
@@ -48,6 +49,21 @@ export function Home() {
     setTasks((prevState) => prevState.filter((task) => task.id !== id));
   }
 
+  function addNewTask() {
+    if (!inputText) return;
+
+    setTasks((prevState) => [
+      ...prevState,
+      {
+        id: uuidv4(),
+        text: inputText,
+        isDone: false,
+      },
+    ]);
+
+    setInputText('');
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -64,8 +80,11 @@ export function Home() {
           onBlur={() => setIsInputFocused(false)}
           placeholder="Add new task"
           placeholderTextColor="#808080"
+          value={inputText}
+          onChangeText={(value) => setInputText(value)}
+          onSubmitEditing={addNewTask}
         />
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={addNewTask}>
           <Feather name="plus-circle" size={20} color="#f2f2f2" />
         </TouchableOpacity>
       </View>
